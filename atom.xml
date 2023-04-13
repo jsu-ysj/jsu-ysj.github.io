@@ -6,7 +6,7 @@
   <link href="https://jsu-ysj.github.io/atom.xml" rel="self"/>
   
   <link href="https://jsu-ysj.github.io/"/>
-  <updated>2023-04-11T12:28:09.973Z</updated>
+  <updated>2023-04-13T09:48:33.178Z</updated>
   <id>https://jsu-ysj.github.io/</id>
   
   <author>
@@ -17,24 +17,57 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://jsu-ysj.github.io/posts/0.html"/>
-    <id>https://jsu-ysj.github.io/posts/0.html</id>
-    <published>2023-04-10T02:50:08.264Z</published>
-    <updated>2023-04-11T12:28:09.973Z</updated>
+    <title>文献阅读(2)</title>
+    <link href="https://jsu-ysj.github.io/posts/24bc70b0.html"/>
+    <id>https://jsu-ysj.github.io/posts/24bc70b0.html</id>
+    <published>2023-04-13T06:39:25.658Z</published>
+    <updated>2023-04-13T09:48:33.178Z</updated>
+    
+    <content type="html"><![CDATA[<h1>融合注意力机制和高效网络的糖尿病视网膜病变识别与分类</h1><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413155811814.png" alt="image-20230413155811814"></p><h2 id="一、简介">一、简介</h2><p>利用<strong>EfficientNet</strong>进行特征提取，采用<strong>迁移网络策略</strong>用DR的数据集对EfficientNet进行学习与训练，为了<strong>解决病变之间差异小的问题</strong>，在EfficientNet <strong>输出结果</strong>上加入<strong>注意力机制</strong>，然后根据网络提取的特征进行分类，模型训练。结果：分类精准：97.2%，敏感性：95.6%，特异性：98.7%，<strong>kappa : 0.84</strong>。</p><h2 id="二、文章的复现前置知识">二、文章的复现前置知识</h2><ol><li><p><strong>EfficientNet</strong>卷积神经网络模型</p></li><li><p>迁移学习</p></li><li><p>数据增强和数据预处理</p></li><li><p><strong>Attention</strong></p></li></ol><h2 id="三、文章的结构">三、文章的结构</h2><ul><li><h3 id="summary">summary</h3></li><li><h3 id="introduction">introduction</h3><ul><li>介绍 <strong>diabetic retinopthy: DR</strong>病情背景</li><li>介绍一下当下在<strong>diabetic retinopthy</strong> 上面的一些分类数据和他人的模型</li></ul></li><li><h3 id="数据集的选择">数据集的选择</h3><ul><li><strong>Messidor数据集</strong></li></ul></li><li><h3 id="method">method</h3><ul><li><p><strong>迁移学习</strong>：通过在imageNet 数据集上面进行EfficientNet的权重预训练，初始化权重</p></li><li><p><strong>选择小网络</strong>：综合数据集等因素选择参数比较少的网络EfficientNet</p></li><li><p><strong>注意力机制</strong>：把Efficient输出特征 F 作为 Attention 的输入，提高细节注意度</p></li><li><p><strong>dropout</strong>:防止数据小而容易过拟合，在全连接层加入 dropout 进行随机失活处理</p></li><li><p><strong>Adam优化器</strong>：选用良好的自适应学习率优化器Adam</p></li><li><p><strong>数据预处理</strong>：</p><ul><li>去除黑色边缘，高斯平滑</li><li>数据增强：随机旋转0~90进行数据增强</li></ul></li></ul></li><li><h3 id="实验结果分析">实验结果分析</h3><ul><li><p>和网络InceptionV3 进行对比，表明自己的模型优势</p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413173506115.png" alt="image-20230413173506115"></p></li><li></li></ul></li><li><h3 id="结论">结论</h3><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413173652353.png" alt="image-20230413173652353"></p></li></ul><h2 id="四、总结">四、总结</h2><ul><li><h3 id="文章优点">文章优点</h3><ol><li>文章结构清晰</li><li>文章使用的methed 使用的Attention 放在输出层，感觉可以试试看</li><li>文章的dropout 随机失活，可以防止过拟合</li></ol></li><li><h3 id="文章缺点">文章缺点</h3><ol><li>文章的预处理有点简单，单纯的旋转数据增强度不高</li></ol></li><li><h3 id="借鉴之处">借鉴之处</h3><ol><li>借用文章结构，直接应用多个概念，直接水字数</li><li>文章的dorpout可以试试，我是用的ResNet50+Attention 感觉后面容易过拟合</li></ol></li></ul><h2 id="五、复现">五、复现</h2><p>文章具有可复现的可能，数据集+模型结构，但是在inmageNet 上面进行预训练可能性不高，可以尝试进行复现。续：</p>]]></content>
+    
+    
+    <summary type="html">融合注意力机制和高效网络的糖尿病视网膜病变识别与分类-张子振、刘明、朱德江</summary>
     
     
     
+    <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
+    
+    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
-    <title>尝试去搭配训练一下糖网数据集2</title>
-    <link href="https://jsu-ysj.github.io/posts/1821c1d1.html"/>
-    <id>https://jsu-ysj.github.io/posts/1821c1d1.html</id>
-    <published>2023-03-24T09:56:54.858Z</published>
-    <updated>2023-04-11T12:29:11.493Z</updated>
+    <title>Pytorch中常用的优化器optimizer</title>
+    <link href="https://jsu-ysj.github.io/posts/56567e4e.html"/>
+    <id>https://jsu-ysj.github.io/posts/56567e4e.html</id>
+    <published>2023-04-11T10:07:47.146Z</published>
+    <updated>2023-04-11T12:49:01.596Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Pytorch中常用的优化器</h1><h2 id="1、SGD">1、SGD</h2><ul><li><p><strong>特点</strong></p><ul><li>随机梯度下降（SGD）：是一种基本的优化器，通过计算梯度并沿着梯度反方向更新参数，以最小化损失函数。</li></ul></li><li><p><strong>代码实现</strong></p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line">optimizer = optim.SGD(model.parameters(), lr=<span class="number">0.01</span>, momentum=<span class="number">0.9</span>)</span><br></pre></td></tr></table></figure></li><li><p><strong>参数</strong>含义:</p><ul><li>lr：学习率（learning rate），即参数更新的步长。</li><li>momentum：动量（momentum），用于加速收敛和平滑梯度更新的方向。</li></ul></li></ul><h2 id="2、Momentum">2、Momentum</h2><ul><li><p><strong>特点</strong></p><ul><li>动量优化器（Momentum）：通过累积之前的梯度信息，来决定参数更新的方向和大小，从而加速收敛。</li></ul></li><li><p><strong>代码实现</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line">optimizer = optim.SGD(model.parameters(), lr=<span class="number">0.01</span>, momentum=<span class="number">0.9</span>)</span><br></pre></td></tr></table></figure></li><li><p><strong>参数含义</strong></p><ul><li>lr：学习率。</li><li>momentum：动量。</li></ul></li></ul><h2 id="3、AdaGrad">3、AdaGrad</h2><ul><li><p><strong>特点</strong></p><ul><li>AdaGrad：根据每个参数的历史梯度信息来更新参数，对于经常出现的参数梯度较大的参数，会降低学习率，从而使得模型更加稳定。</li></ul></li><li><p><strong>代码实现</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line">optimizer = optim.Adagrad(model.parameters(), lr=<span class="number">0.01</span>)</span><br></pre></td></tr></table></figure></li><li><p><strong>参数含义</strong></p><ul><li>lr：学习率。</li><li>lr_decay：学习率衰减。</li><li>eps：数值稳定性。</li></ul></li></ul><h2 id="4、RMSprop">4、RMSprop</h2><ul><li><p><strong>特点</strong></p><ul><li>RMSprop：通过对梯度平方的指数加权平均来更新参数，从而对不同的参数赋予不同的学习率，使其更加稳定。</li></ul></li><li><p><strong>代码实现</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line">optimizer = optim.RMSprop(model.parameters(), lr=<span class="number">0.01</span>, alpha=<span class="number">0.99</span>, eps=<span class="number">1e-08</span>)</span><br></pre></td></tr></table></figure></li><li><p><strong>参数含义</strong></p><ul><li>lr：学习率。</li><li>alpha：衰减因子，用于控制历史梯度的权重。</li><li>eps：数值稳定性。</li></ul></li></ul><h2 id="5、Adam">5、Adam</h2><ul><li><p><strong>特点</strong></p><ul><li>Adam：结合动量优化器和 RMSprop 的优点，通过计算梯度的均值和方差来更新参数，从而使得学习率更加自适应。</li></ul></li><li><p><strong>代码实现</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line">optimizer = optim.Adam(model.parameters(), lr=<span class="number">0.01</span>, betas=(<span class="number">0.9</span>, <span class="number">0.999</span>), eps=<span class="number">1e-08</span>)</span><br></pre></td></tr></table></figure></li><li><p><strong>参数含义</strong></p><ul><li>lr：学习率。</li><li>betas：用于计算梯度的一阶矩估计和二阶矩估计的指数衰减率。</li><li>eps：数值稳定性。</li></ul></li></ul><h2 id="6、Adadelta">6、Adadelta</h2><ul><li><p><strong>特点</strong></p><ul><li>Adadelta：通过对梯度平方的指数加权平均和参数更新的平方的指数加权平均来更新参数，从而避免了学习率的选择和调整。</li></ul></li><li><p><strong>代码实现</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line">optimizer = optim.Adadelta(model.parameters(), lr=<span class="number">1.0</span>, rho=<span class="number">0.9</span>, eps=<span class="number">1e-06</span>)</span><br></pre></td></tr></table></figure></li><li><p><strong>参数含义</strong></p><ul><li>rho：衰减因子，用于控制历史梯度的权重。</li><li>eps：数值稳定性。</li></ul></li></ul><h2 id="7、Nadam">7、Nadam</h2><ul><li><p><strong>特点</strong></p><ul><li>Nadam：结合了 Adam 和 Nesterov 动量的优点，具有更好的性能和收敛速度。</li></ul></li><li><p><strong>代码实现</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line">optimizer = optim.Nadam(model.parameters(), lr=<span class="number">0.01</span>, betas=(<span class="number">0.9</span>, <span class="number">0.999</span>), eps=<span class="number">1e-08</span>)</span><br></pre></td></tr></table></figure></li><li><p><strong>参数含义</strong></p><ul><li>lr：学习率。</li><li>betas：用于计算梯度的一阶矩估计和二阶矩估计的指数衰减率。</li><li>eps：数值稳定性。</li></ul></li></ul>]]></content>
+    
+    
+    <summary type="html">Pytorch中常用的优化器optimizer</summary>
+    
+    
+    
+    <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="机械学习" scheme="https://jsu-ysj.github.io/tags/%E6%9C%BA%E6%A2%B0%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文献阅读模板</title>
+    <link href="https://jsu-ysj.github.io/posts/7d10898e.html"/>
+    <id>https://jsu-ysj.github.io/posts/7d10898e.html</id>
+    <published>2023-04-10T02:50:08.264Z</published>
+    <updated>2023-04-13T09:33:55.022Z</updated>
     
     
     <summary type="html">尝试去搭配训练一下糖网数据集</summary>
@@ -44,9 +77,30 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="机械学习" scheme="https://jsu-ysj.github.io/tags/%E6%9C%BA%E6%A2%B0%E5%AD%A6%E4%B9%A0/"/>
+    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
     <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>尝试去搭配训练一下糖网数据集2</title>
+    <link href="https://jsu-ysj.github.io/posts/1821c1d1.html"/>
+    <id>https://jsu-ysj.github.io/posts/1821c1d1.html</id>
+    <published>2023-03-24T09:56:54.858Z</published>
+    <updated>2023-04-13T06:40:20.035Z</updated>
+    
+    
+    <summary type="html">尝试去搭配训练一下糖网数据集</summary>
+    
+    
+    
+    <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="机械学习" scheme="https://jsu-ysj.github.io/tags/%E6%9C%BA%E6%A2%B0%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -67,9 +121,9 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="机械学习" scheme="https://jsu-ysj.github.io/tags/%E6%9C%BA%E6%A2%B0%E5%AD%A6%E4%B9%A0/"/>
-    
     <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="机械学习" scheme="https://jsu-ysj.github.io/tags/%E6%9C%BA%E6%A2%B0%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
