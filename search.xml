@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>文献阅读(3)</title>
-      <link href="/posts/3da741f1.html"/>
-      <url>/posts/3da741f1.html</url>
+      <title>文献阅读(4)</title>
+      <link href="/posts/72e6d736.html"/>
+      <url>/posts/72e6d736.html</url>
       
-        <content type="html"><![CDATA[<h1>基于注意力机制多特征融合的视网膜病变分级算法</h1><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413180506013.png" alt="image-20230413180506013"></p><h2 id="一、简介">一、简介</h2><p>本文提出一种<strong>基于注意力机制多特征融合的算法来对DR进行诊断分级</strong>。首先对输入的图像采用<strong>高斯滤波</strong>等形态学预处理来提升眼底图像特征对比度；然后用<strong>ResNeSt50 残差网络作为模型的骨干</strong>，引入<strong>多尺度特征增强模块</strong>对视网膜病变图像病变区域进行特征增强，提高分级准确率；再后利用图形<strong>特征融合模块</strong>对主干输出的特征增强后的局部特征进行信息融合；最后采用<strong>中心损失和焦点损失组合的加权损失函数</strong>进一步提升分类效果。在印度糖尿病视网膜病变 <strong>(IDRID) 数据集</strong>中灵敏度和特异性分别为95.65%和 91.17%，<strong>二次加权一致性检验系数为 90.38%</strong>。在 <strong>Kaggle 比赛数据集中准确率为 84.41%</strong>，受试者工作特征曲线下的面积为 90.36%。</p><h2 id="二、文章的复现前置知识">二、文章的复现前置知识</h2><ol><li><strong>ResNet50 + ResNest50</strong>卷积神经网络模型</li><li>中心损失结合交叉损失的加权损失函数</li><li><strong>Attention</strong></li></ol><h2 id="三、文章的结构">三、文章的结构</h2><h3 id="summary">summary</h3><h3 id="introduction">introduction</h3><ul><li><p>介绍 <strong>diabetic retinopthy: DR</strong>病情背景</p></li><li><p>介绍一下当下在<strong>diabetic retinopthy</strong>  训练上面存在的问题，方便提出自己的模型</p></li><li><p>简略的提出自己的模型<strong>ResNest50</strong> + 直接提出了自己的优化方法</p><p>​<strong>method</strong>：</p><ul><li>通过多尺度特征增强模块 (<strong>multi-scale features</strong><br><strong>boosting module, MSFB</strong>) 来获取<strong>更大的感受野</strong>，解决<br>训练过程中下采样引起的图像分辨率降低和特征提取<br>不充分的问题，并且模块中空间和通道注意力机制可<br>以加强对病变区域的关注，优化模型性能；</li><li>再通过图形特征融合模块 (<strong>graphic feature</strong><br><strong>fusion module，GFFM</strong>) 进行信息融合，不同阶段的局<br>部特征图两两融合加强病变区域的权重，提高模型对<br>病变区域识别准确率；</li><li>最后利用<strong>中心损失和焦点损失的加权组合</strong>缓解<br>数据集类间差异小难以区分和数据集样本分布不平衡<br>等问题，进一步提升DR分级效果。</li></ul></li></ul><h3 id="model-structure-javascript">[model structure](javascript:;)</h3><ul><li><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413194203988.png" alt="image-20230413194203988"></p><p>具体模块去介绍：</p><p>多特征融合（multi-features fusion）</p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413194351245.png" alt="image-20230413194351245"></p><p><strong>Overall framework of the algorithm</strong></p></li></ul><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413194436796.png" alt="image-20230413194436796"></p><h3 id="数据来源">数据来源</h3><ul><li><strong>IDRID数据集</strong></li><li><strong>Eye-PACS 数据集</strong></li></ul><h3 id="实验结果分析">实验结果分析</h3><ul><li><p><strong>不同参数自我之间进行对比</strong></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413195113313.png" alt="image-20230413195113313"></p></li><li><p><strong>不同模型之间进行对比</strong></p><p><img src="C:%5CUsers%5CYSJ%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20230413195130311.png" alt="image-20230413195130311"></p><p>其他指标：</p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413195254797.png" alt="image-20230413195254797"></p></li></ul><h3 id="结论">结论</h3><p>实验结果证明，本文所提算法能够有效地对 DR各类间微小特征差异进行分级判断，且与同类型病变分级网络进行了比较，验证了本文所提算法模型优于其他网络模型，在 DR领域具有较大的临床应用价值。</p><h2 id="四、总结">四、总结</h2><ul><li><h3 id="文章优点">文章优点</h3><ol><li>多特征融合（在不同视野上面读取不同特征，相当于变相的数据增强）</li><li>文章最后把数据指标进行可视化</li></ol></li><li><h3 id="文章缺点-扩展空间">文章缺点/扩展空间</h3><ol><li>网络整体参数量较大，部分网络还有精简的空间，网络的参数大和复杂性增加了训练时间</li></ol></li><li><h3 id="借鉴之处">借鉴之处</h3><ol><li>可视化数据指标（这个有了）</li><li>感觉就是ResNest网络去跑了模型，没有预训练啥的</li></ol></li></ul><h2 id="五、复现">五、复现</h2><p>​没有找到数据集，复现难度比较大，可以试试，已经用相似的网络去跑了Messidor-2数据集效果十分不理想，可能是模型参数有点多，太复杂了，容易过拟合！</p>]]></content>
+        <content type="html"><![CDATA[<h1>融合注意力机制和高效网络的糖尿病视网膜病变识别与分类</h1><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413211409623.png" alt="image-20230413211409623"></p><h2 id="一、简介">一、简介</h2><p>针对在糖尿病视网膜病变分类过程中，因为<strong>数据集不均衡</strong>、<strong>类间特征相似</strong>、<strong>类内又存有差异</strong>，从<br>而导致最终分类准确率不高的问题，<strong>提出了一种****结合生成对抗网络与双注意力的分类方法 ＡＩＤｎｅｔ</strong>。首先，<br>在<strong>ＡＣＧＡＮ</strong>网络后加入转置卷积进行改进，生成轻度ＮＰＤＲ、重度ＮＰＤＲ、ＰＤＲ的图像<strong>平衡数据集</strong>；</p><p>其次，在inceptionV3网络的基础上加入双注意力机制（<strong>DAM</strong>），减少易识别病变权重，高效的提取DR图像细节特征，<strong>ＡＩＤｎｅｔ</strong>网络在kaggle数据集上的自动分类准确率为89.53％，敏感度为82.45％，特异性为93.26％；在<strong>Ｍｅｓｓｉｄｏｒ２</strong>上的准确率达到<strong>90.31％</strong>，敏感度达到89.28％，特异性达到93.31％。较其他分类方法而言，<strong>ＡＩＤｎｅｔ</strong>分类效果良好，有助于提高糖尿病视网膜病变的分类准确率</p><h2 id="二、文章的复现前置知识">二、文章的复现前置知识</h2><ol><li><strong>ACGAN +GAN</strong>卷积神经网络模型</li><li>数据增强和数据预处理</li><li><strong>Attention</strong>  + <strong>Double Attention</strong></li></ol><h2 id="三、文章的结构">三、文章的结构</h2><ul><li><h3 id="summary">summary</h3></li><li><h3 id="introduction">introduction</h3><ul><li><p>介绍 <strong>diabetic retinopthy: DR</strong>病情背景, 具体强调了数据不平衡之间的问题。</p></li><li><p>介绍一下当下在<strong>diabetic retinopthy</strong> 上面的一些分类数据和他人的模型</p><ul><li><p>分类数据集： <strong>kaggle</strong>, <strong>Messidor2</strong>, <strong>APTOS2019</strong></p></li><li><p>Levenbery-Marquardt(LM)和贝叶斯正则化 ： <strong>67.74</strong>%</p></li><li><p>Inception-ResNet-V2２上添加了自定义的卷积块，构建出了混合模型： <strong>82.18</strong>%</p></li><li><p>Antery等提出了多尺度注意力网络 ：  <strong>84.6</strong>%</p></li></ul></li><li><p>提出自己方法： <strong>AIDnet+迁移学习， GAN生成样本</strong></p></li></ul></li><li><h3 id="method">method</h3><ul><li><p><strong>迁移学习</strong>：迁移学习是目前使用较多的样本数据增广方法（没有说明怎么迁移的）</p></li><li><p><strong>生成对抗网络</strong>：提出GAN和ACGAN的概念</p></li><li><p><strong>注意力机制</strong>：把Efficient输出特征 F 作为 Attention 的输入，提高细节注意度</p></li><li><p><strong>Double Attention</strong> ： 提出双注意力机制</p></li></ul></li><li><h3 id="model-structure">model structure</h3><ul><li><strong>提出总体模型设计</strong></li></ul><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414145248416.png" alt="image-20230414145248416"></p><ul><li><strong>提出ACGAN的设计</strong></li></ul><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414145425993.png" alt="image-20230414145425993"></p><p>写出目标函数：</p><ul><li><p><strong>判别器的：</strong></p><p>​<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414145556308.png" alt=""></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414145630249.png" alt="image-20230414145630249"></p></li><li><p><strong>生成器的</strong></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414145556308.png" alt="image-20230414145556308"></p></li><li><p><strong>提出Double Attention 设计</strong></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414145726422.png" alt="image-20230414145726422"></p></li><li><p><strong>损失函数focal loss</strong></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414145905813.png" alt="image-20230414145905813"></p><p>补充：focal loss可以自适应地改变难分类的样本和<br>易分类样本在损失函数里的权重，解决严重的样<br>本不平衡问题，而且不需要计算复杂的权值映射，<br>使模型能够更好地捕捉图像特征。</p></li></ul></li><li><h3 id="数据集选择">数据集选择</h3><ul><li><strong>Messidor-2</strong></li><li><a href="https://www.kaggle.com/c/diabetic-retinopthy-detectton/orverview"><strong>kaggle</strong> <strong>Eye-PACS</strong></a></li></ul></li><li><h3 id="数据预处理">数据预处理</h3><ul><li>数据增强： 两个数据集中健康的眼底图像数量远远多于<br>病变的眼底图像数量，在网络训练的过程中加入<br>数据增强的操作有助于在一定程度上减弱数据集<br>的不平衡，降低过拟合的风险。本文数据增强的<br>方法是：随机水平垂直翻转，按中心点随机旋转<br>９０°，按照一定尺度和比率随机裁剪出５１２×５１２<br>的图片，增加明亮度与对比度</li></ul></li><li><h3 id="ACGAN迁移训练和数据的生成">ACGAN迁移训练和数据的生成</h3><p>训练ACGAN模型，在<strong>imageNet</strong>上面进行训练的<strong>inceptionV3</strong> 进行测试，保存好的模型，然后去生成数据集里面比较少的数据。（这里经过<strong>人工筛选</strong>之后得到比较好的数据）。这里在imageNet上面使用的<strong>inceptionV3</strong>的优化器是<strong>Adam</strong>,训练次数<strong>4000</strong></p></li><li><h3 id="训练开始">训练开始</h3><ul><li><p>lr = 0.01</p></li><li><p>SGD优化器 weight-decay = 1e-4, momentum = 0.9</p></li><li><p>焦点损失函数和交叉熵损失函数</p></li><li><p>DAM + inceptionV3 或者 CABM</p></li></ul></li><li><h3 id="实验结果分析">实验结果分析</h3><ul><li><p>Tab2 Comparision of parameters and accuracy results after adding attention model</p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414151742077.png" alt="image-20230414151742077"></p></li><li><p>Comparision of classification results on Kaggle</p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414152438379.png" alt="image-20230414152438379"></p></li><li><p>comparision  of classification results on Messidor-2</p></li><li><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414152552458.png" alt="image-20230414152552458"></p></li></ul></li><li><h3 id="结论">结论</h3><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414152847860.png" alt="image-20230414152847860"></p></li></ul><h2 id="四、总结">四、总结</h2><ul><li><h3 id="文章优点">文章优点</h3><ol><li>文章结构清晰, 提出问题，引出自己的论点，然后提出总体设计，分开讲解每一个模块的设计，非常清晰。</li><li>换了一个角度去进行数据增强，值得借鉴（这里可以换成扩散网络试试看）</li><li>Double Attention 使用</li></ol></li><li><h3 id="文章缺点">文章缺点</h3><ol><li>没有吧，没看出来，就是对别人模型的复现有点差</li></ol></li><li><h3 id="借鉴之处">借鉴之处</h3><ol><li>换了一个角度去进行数据增强，值得借鉴（这里可以换成扩散网络试试看）可以使用感觉。</li><li>Double Attention</li></ol></li></ul><h2 id="五、复现">五、复现</h2><p>​文章具有可复现的可能，数据集+模型结构，没有预训练数据集，然后还需要学习一下GAN和ACGAN。</p>]]></content>
       
       
       <categories>
@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> 神经网络 </tag>
-            
             <tag> 文献阅读 </tag>
+            
+            <tag> 神经网络 </tag>
             
             <tag> 糖网分类 </tag>
             
@@ -49,9 +49,38 @@
       
         <tags>
             
+            <tag> 文献阅读 </tag>
+            
             <tag> 神经网络 </tag>
             
+            <tag> 糖网分类 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>文献阅读(3)</title>
+      <link href="/posts/3da741f1.html"/>
+      <url>/posts/3da741f1.html</url>
+      
+        <content type="html"><![CDATA[<h1>基于注意力机制多特征融合的视网膜病变分级算法</h1><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413180506013.png" alt="image-20230413180506013"></p><h2 id="一、简介">一、简介</h2><p>本文提出一种<strong>基于注意力机制多特征融合的算法来对DR进行诊断分级</strong>。首先对输入的图像采用<strong>高斯滤波</strong>等形态学预处理来提升眼底图像特征对比度；然后用<strong>ResNeSt50 残差网络作为模型的骨干</strong>，引入<strong>多尺度特征增强模块</strong>对视网膜病变图像病变区域进行特征增强，提高分级准确率；再后利用图形<strong>特征融合模块</strong>对主干输出的特征增强后的局部特征进行信息融合；最后采用<strong>中心损失和焦点损失组合的加权损失函数</strong>进一步提升分类效果。在印度糖尿病视网膜病变 <strong>(IDRID) 数据集</strong>中灵敏度和特异性分别为95.65%和 91.17%，<strong>二次加权一致性检验系数为 90.38%</strong>。在 <strong>Kaggle 比赛数据集中准确率为 84.41%</strong>，受试者工作特征曲线下的面积为 90.36%。</p><h2 id="二、文章的复现前置知识">二、文章的复现前置知识</h2><ol><li><strong>ResNet50 + ResNest50</strong>卷积神经网络模型</li><li>中心损失结合交叉损失的加权损失函数</li><li><strong>Attention</strong></li></ol><h2 id="三、文章的结构">三、文章的结构</h2><h3 id="summary">summary</h3><h3 id="introduction">introduction</h3><ul><li><p>介绍 <strong>diabetic retinopthy: DR</strong>病情背景</p></li><li><p>介绍一下当下在<strong>diabetic retinopthy</strong>  训练上面存在的问题，方便提出自己的模型</p></li><li><p>简略的提出自己的模型<strong>ResNest50</strong> + 直接提出了自己的优化方法</p><p>​<strong>method</strong>：</p><ul><li>通过多尺度特征增强模块 (<strong>multi-scale features</strong><br><strong>boosting module, MSFB</strong>) 来获取<strong>更大的感受野</strong>，解决<br>训练过程中下采样引起的图像分辨率降低和特征提取<br>不充分的问题，并且模块中空间和通道注意力机制可<br>以加强对病变区域的关注，优化模型性能；</li><li>再通过图形特征融合模块 (<strong>graphic feature</strong><br><strong>fusion module，GFFM</strong>) 进行信息融合，不同阶段的局<br>部特征图两两融合加强病变区域的权重，提高模型对<br>病变区域识别准确率；</li><li>最后利用<strong>中心损失和焦点损失的加权组合</strong>缓解<br>数据集类间差异小难以区分和数据集样本分布不平衡<br>等问题，进一步提升DR分级效果。</li></ul></li></ul><h3 id="model-structure-javascript">[model structure](javascript:;)</h3><ul><li><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413194203988.png" alt="image-20230413194203988"></p><p>具体模块去介绍：</p><p>多特征融合（multi-features fusion）</p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413194351245.png" alt="image-20230413194351245"></p><p><strong>Overall framework of the algorithm</strong></p></li></ul><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413194436796.png" alt="image-20230413194436796"></p><h3 id="数据来源">数据来源</h3><ul><li><strong>IDRID数据集</strong></li><li><strong>Eye-PACS 数据集</strong></li></ul><h3 id="实验结果分析">实验结果分析</h3><ul><li><p><strong>不同参数自我之间进行对比</strong></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413195113313.png" alt="image-20230413195113313"></p></li><li><p><strong>不同模型之间进行对比</strong></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413210653127.png" alt="image-20230413210653127"></p><p>其他指标：</p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413195254797.png" alt="image-20230413195254797"></p></li></ul><h3 id="结论">结论</h3><p>实验结果证明，本文所提算法能够有效地对 DR各类间微小特征差异进行分级判断，且与同类型病变分级网络进行了比较，验证了本文所提算法模型优于其他网络模型，在 DR领域具有较大的临床应用价值。</p><h2 id="四、总结">四、总结</h2><ul><li><h3 id="文章优点">文章优点</h3><ol><li>多特征融合（在不同视野上面读取不同特征，相当于变相的数据增强）</li><li>文章最后把数据指标进行可视化</li></ol></li><li><h3 id="文章缺点-扩展空间">文章缺点/扩展空间</h3><ol><li>网络整体参数量较大，部分网络还有精简的空间，网络的参数大和复杂性增加了训练时间</li></ol></li><li><h3 id="借鉴之处">借鉴之处</h3><ol><li>可视化数据指标（这个有了）</li><li>感觉就是ResNest网络去跑了模型，没有预训练啥的</li></ol></li></ul><h2 id="五、复现">五、复现</h2><p>​没有找到数据集，复现难度比较大，可以试试，已经用相似的网络去跑了Messidor-2数据集效果十分不理想，可能是模型参数有点多，太复杂了，容易过拟合！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 神经网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
             <tag> 文献阅读 </tag>
+            
+            <tag> 神经网络 </tag>
             
             <tag> 糖网分类 </tag>
             
@@ -78,9 +107,9 @@
       
         <tags>
             
-            <tag> 机械学习 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 机械学习 </tag>
             
         </tags>
       
@@ -105,9 +134,9 @@
       
         <tags>
             
-            <tag> 神经网络 </tag>
-            
             <tag> 文献阅读 </tag>
+            
+            <tag> 神经网络 </tag>
             
         </tags>
       
@@ -132,9 +161,9 @@
       
         <tags>
             
-            <tag> 机械学习 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 机械学习 </tag>
             
         </tags>
       
@@ -159,9 +188,9 @@
       
         <tags>
             
-            <tag> 机械学习 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 机械学习 </tag>
             
         </tags>
       
