@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>文献阅读(6)</title>
+      <link href="/posts/40d0b5b4.html"/>
+      <url>/posts/40d0b5b4.html</url>
+      
+        <content type="html"><![CDATA[<h1>基于卷积神经网络的图像分类算法综述</h1><h2 id="一、简介">一、简介</h2><p>卷积神经网络CNN是目前基于深度学习的计算机视觉领域中的重要研究领域方向之一。CNN在图像分类、分割、目标检测的应用中表现十分的出色，但是CNN存在一些特征提取不完整、样本训练过过拟合的问题。针对这些问题，在本文中提出了CNN的发展，和CNN的经典网络模型及组件。提出了一些解决上面问题的方法。</p><h2 id="二、文章结构">二、文章结构</h2><h3 id="1、summary">1、summary</h3><h3 id="2、introduction">2、introduction</h3><ul><li>总的介绍了深度学习神经王网络的发展历史</li></ul><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230416091347396.png" alt="image-20230416091347396"></p><ul><li><p>介绍了CNN的主体结构</p><ul><li>卷积层</li><li>激活层 ReLU</li><li>归一层 Batch Normelization (BN)</li><li>池化层 Pooling (Max Pooling, Average Pooling, Spatial Pyramid Pooling)</li></ul></li><li><p>介绍了几个经典网络的模型</p><ul><li><p>AlexNet</p></li><li><p>VGG</p></li><li><p>GoogLeNet (Inception（V1，V2, V3，V4）)</p></li><li><p>ResNet 残差</p></li><li><p>MobileNet</p></li></ul></li></ul><h3 id="3、end">3、end</h3><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230416092413614.png" alt="image-20230416092413614"></p><h2 id="三、总结">三、总结</h2><h3 id="文章优点">文章优点</h3><p>结构清晰、阐述了CNN的发展历史，提出了几种经典的网络模型</p><p>结尾提出Tansformer,确实是重点研究方向之一</p><h3 id="文章缺点">文章缺点</h3><p>激活层现在不止只有ReLU, DropOut随机失活层</p><h3 id="借鉴">借鉴</h3><p>综述的模板</p><p>里面有一些可以引荐</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 神经网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 神经网络 </tag>
+            
+            <tag> 文献阅读 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>文献阅读(5)</title>
+      <link href="/posts/6bfde677.html"/>
+      <url>/posts/6bfde677.html</url>
+      
+        <content type="html"><![CDATA[<h1>小样本图像分类研究综述</h1><h1>Survey of Few-Shot Image Classification Research</h1><h2 id="一、简介">一、简介</h2><p>针对分类任务系统梳理了当前<strong>小样本</strong>图像分类的相关工作，小样本学习主要采用<strong>元学习、度量学习和数据增强</strong>等深度学习方法。从有监督、半监督和无监督等层次<strong>归纳总结</strong>了小样本图像分类的研究进展和典型技术模型，以及这些模型方法在若干<strong>公共数据集上的表现</strong>，并从<strong>机制</strong>、优势、<strong>局限性</strong>等方面进行了对比分析。最后，讨论了当前小样本图像分类面临的技术难点以及未来的<strong>发展趋势</strong>。（元学习， 度量学习）</p><h1>二、文章的结构</h1><p>综述文献感觉有点不一样，没有分级，直接接这说明小样本训练的总体结构：</p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230415104227544.png" alt="image-20230415104227544"></p><h3 id="1-小样的分类方法和数据集的介绍">1.小样的分类方法和数据集的介绍</h3><h4 id="提出三种小样本学习常用的方法（模型）：">提出三种小样本学习常用的方法（模型）：</h4><ul><li><strong>元学习</strong>：也叫做learn to learn, 简单的总结就是，不会直接去学习这个数据，而是会找一些相关的数据去学习，从未达到比较好的效果。（我的理解就是比较好的预训练）</li><li><strong>度量学习</strong>：把小样本嵌入到不同“背景”之中去，来达到一个数据增强的效果 。</li><li><strong>数据增强</strong>：生成对抗网络，或者简单的 裁剪、翻转、过滤、旋转和去噪，也就是GAN和transform</li></ul><h4 id="提出几种小样本数据集">提出几种小样本数据集</h4><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230415105134405.png" alt="image-20230415105134405"></p><h3 id="2、有监督方法的小样本数据分类的对比性分析">2、有监督方法的小样本数据分类的对比性分析</h3><p><strong><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230415105334436.png" alt="image-20230415105334436"></strong></p><h3 id="3、半监督方法的小样本分类对比分析">3、半监督方法的小样本分类对比分析</h3><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230415105443183.png" alt="image-20230415105443183"></p><h3 id="4、无监督方法的小样本分类对比分析">4、无监督方法的小样本分类对比分析</h3><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230415105541654.png" alt="image-20230415105541654"></p><h3 id="5、分析未来小样本数据分类的挑战">5、分析未来小样本数据分类的挑战</h3><ul><li><p><strong>深度学习可解释性</strong>：</p><p>​研究者无法得知神经网络模型到底学习了什么，也不知道每一个参数的具体含义是什么，因此无<br>法解释整个模型的运作机制，无法得出明确而有针对性的优化方案来解决问题，只能通过大量实验不<br>断地尝试提高性能的方法。因此一个好的可解释性工作对小样本甚至任何研究方向都有指导作用。</p></li><li><p><strong>数据集挑战</strong>：</p><p>图像分类任务中目前仅有ImageNet作为预训练数据集，而文本分类中缺少类似的预训练数据<br>集，导致很多小样本图像分类方法缺少普适性，只适合在特定的数据集上发挥好的结果。在小样本图像<br>分类任务中Mini-ImageNet 和Omniglot 是两个被广泛使用的标准数据集，最近的斯坦福犬和CUB细<br>粒度分类等数据集也开始被人们用于测试，但并没有ImageNet数据集使用广泛。</p></li><li><p><strong>模型预训练的挑战</strong>：</p><p>从本质上来看与小样本学习的定义背道而驰。从根本上解决小样本问题，就要做到不依赖预训练模型，需研究利用其他先验知识而非模型预训练的方法。</p></li><li><p>​<strong>其他挑战</strong>：</p><p>将元学习与度量学习相结合，在进行特征提取之前，通过元学习预处理数据，设置更加合理的支持集<br>和查询集。虽然已经有研究者开始尝试，但是想实现这样的效果却十分困难，几个学习算法的相互结<br>合，有时候反而会导致小样本学习的性能下降。</p></li></ul><h3 id="6、小样本数据分类未来的发展方向">6、小样本数据分类未来的发展方向</h3><p>（1）在数据层面训练模型时尝试利用其他先验知识，或更好地利用无标注数据。</p><p>（2）对度量学习提出更有效的神经网络度量方法。</p><p>（3）元学习作为小样本学习的热点研究方向之一，元学习模型还继续有待提升。</p><p>（4）将对比学习与小样本学习有效地结合来达到更好的性能，是值得研究发展的方向。</p><p>（5）随着主动学习和强化学习框架的兴起，可以考虑将这些先进框架应用到小样本学习。</p><p>（6）通过Atention 来小样本数据分类的准确性</p><p>（7）尝试更多小样本数据学习方法的结合</p><h2 id="三、总结">三、总结</h2><p>介绍了用于小样本学习的常用算法，以及小样本图像分类在<strong>有监督</strong>、半监督和<strong>无监督</strong>下的技<br>术发展；最后总结了小样本图像分类的<strong>挑战</strong>和未来发展方向。小样本学习领域目前仍然具有很多值得<br>研究者们去突破的方向。小样本学习在与常规学习相比较时，性能仍然存在一定的差距，因此<strong>还需要研</strong><br><strong>究者们继续探索。</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 神经网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 文献阅读 </tag>
+            
+            <tag> 神经网络综述 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>文献阅读(4)</title>
       <link href="/posts/72e6d736.html"/>
       <url>/posts/72e6d736.html</url>
@@ -20,9 +74,9 @@
       
         <tags>
             
-            <tag> 文献阅读 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 文献阅读 </tag>
             
             <tag> 糖网分类 </tag>
             
@@ -49,9 +103,9 @@
       
         <tags>
             
-            <tag> 文献阅读 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 文献阅读 </tag>
             
             <tag> 糖网分类 </tag>
             
@@ -78,9 +132,9 @@
       
         <tags>
             
-            <tag> 文献阅读 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 文献阅读 </tag>
             
             <tag> 糖网分类 </tag>
             
@@ -107,9 +161,9 @@
       
         <tags>
             
-            <tag> 神经网络 </tag>
-            
             <tag> 机械学习 </tag>
+            
+            <tag> 神经网络 </tag>
             
         </tags>
       
@@ -134,9 +188,9 @@
       
         <tags>
             
-            <tag> 文献阅读 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 文献阅读 </tag>
             
         </tags>
       
@@ -161,9 +215,9 @@
       
         <tags>
             
-            <tag> 神经网络 </tag>
-            
             <tag> 机械学习 </tag>
+            
+            <tag> 神经网络 </tag>
             
         </tags>
       
@@ -188,9 +242,9 @@
       
         <tags>
             
-            <tag> 神经网络 </tag>
-            
             <tag> 机械学习 </tag>
+            
+            <tag> 神经网络 </tag>
             
         </tags>
       
