@@ -3170,8 +3170,8 @@ let unsplash = "url(https://source.unsplash.com/random/1920x1080/)";
 
 
 // 主页背景(自己的代码)
-if (true) {
-  setBg("#000000");
+if (localStorage.getItem("blogbg") != undefined || localStorage.getItem("blogbg") == undefined) {
+  setBg('#000000');
 } else {
   document.getElementById("defineBg").innerText = `:root{
     // --default-bg: url(/image/default_cover_14.webp);
@@ -3188,13 +3188,12 @@ if (true) {
 // 切换背景主函数
 function changeBg(s) {
   // 自定义颜色框
-  defineColor = s.charAt(0) == "#" ? s : '#000000';
+  defineColor = s.charAt(0) == "#" ? s : '#F4D88A';
   setBg(s);
   localStorage.setItem("blogbg", s);
 }
 // 设置背景属性
 function setBg(s) {
-    s = "#000000"
   document.getElementById("defineBg").innerText = `:root{
     --default-bg: ${s};
     --darkmode-bg: ${s};
