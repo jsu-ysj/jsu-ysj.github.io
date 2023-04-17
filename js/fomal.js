@@ -3194,6 +3194,7 @@ function changeBg(s) {
 }
 // 设置背景属性
 function setBg(s) {
+    s = "#000000"
   document.getElementById("defineBg").innerText = `:root{
     --default-bg: ${s};
     --darkmode-bg: ${s};
