@@ -3171,7 +3171,7 @@ let unsplash = "url(https://source.unsplash.com/random/1920x1080/)";
 
 // 主页背景(自己的代码)
 if (true) {
-  setBg(localStorage.getItem("black"));
+  setBg(localStorage.getItem("#000000"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
     // --default-bg: url(/image/default_cover_14.webp);
@@ -3188,7 +3188,7 @@ if (true) {
 // 切换背景主函数
 function changeBg(s) {
   // 自定义颜色框
-  defineColor = s.charAt(0) == "#" ? s : '000000';
+  defineColor = s.charAt(0) == "#" ? s : '#000000';
   setBg(s);
   localStorage.setItem("blogbg", s);
 }
