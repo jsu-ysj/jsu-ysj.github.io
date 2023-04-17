@@ -6,7 +6,7 @@
   <link href="https://jsu-ysj.github.io/atom.xml" rel="self"/>
   
   <link href="https://jsu-ysj.github.io/"/>
-  <updated>2023-04-16T01:32:27.840Z</updated>
+  <updated>2023-04-17T13:18:55.030Z</updated>
   <id>https://jsu-ysj.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Attention</title>
+    <link href="https://jsu-ysj.github.io/posts/8ad2c32e.html"/>
+    <id>https://jsu-ysj.github.io/posts/8ad2c32e.html</id>
+    <published>2023-04-17T10:03:39.147Z</published>
+    <updated>2023-04-17T13:18:55.030Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Attention</h1><h2 id="1、为什么要要用Attention机制？">1、为什么要要用Attention机制？</h2><p>视觉注意力机制是人类大脑的一种天生的能力。当我们看到一幅图片时，先是快速扫过图片，然后锁定需要重点关注的目标区域。比如当我们观察上述图片时，注意力很容易就集中在了人脸、文章标题和文章首句等位置。试想，如果每个局部信息都不放过，那么必然耗费很多精力，不利于人类的生存进化。同样地，在深度学习网络中引入类似的机制，可以<strong>简化模型，加速计算</strong>。另外，利用循环神经网络去处理 NLP任务时，<strong>长距离“记忆”能力一直是个大难题，而引入“注意力机制”也能有效缓解这一问题。</strong></p><h2 id="2、Encoder-Decoder框架">2、Encoder-Decoder框架</h2><p>常见的深度学习模型有 <strong>CNN</strong>、RNN、LSTM、AE 等，其实都可以归为一种通用框架 - <strong>Encoder</strong>-<strong>Decoder</strong>.</p><ul><li><p><strong>Encoder</strong>通常是由一系列的神经网络层组成，可以将输入序列中的每个元素映射到一个<strong>高维向量空间</strong>中，然后将这些向量组合成一个固定长度的向量，作为Encoder的<strong>输出</strong>。Encoder的输出可以用于各种任务，例如情感分类、机器翻译、文本生成等。</p></li><li><p><strong>Decoder</strong>也是由一系列的神经网络层组成，它将Encoder的输出向量作为输入，并生成一个序列。在机器翻译任务中，Decoder通常将<strong>Encoder的输出</strong>向量作为第一个输入，并生成目标语言的句子。在文本生成任务中，<strong>Decoder可以根据Encoder的输出向量生成一段新的文本</strong>。</p></li></ul><h2 id="3、Soft-Attention">3、Soft Attention</h2><ul><li>软注意力模型（Soft Attention Model）是一种常用的注意力机制模型，它可以在输入序列的不同位置上产生不同的注意力权重，从而使模型能够更好地关注与当前任务相关的信息。</li></ul><h2 id="4、Attention-机制原理">4、Attention 机制原理</h2><p>​引用：北京邮电大学 信息与通信工程博士</p><ul><li><p>​现在，请你把 Source 想象成是内存里的一块存储空间，它里面存储的数据按 &lt;Key, Value&gt; 存储。给定 Query，然后取出对应的内容。<strong>这里与一般的 hash 查询方式不同的是，每个地址都只取一部分内容，然后对所有的 Value 加权求和。</strong></p><p>​<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417210530584.png" alt="image-20230417210530584"></p><p><strong>公式描述：</strong></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417210604274.png" alt="image-20230417210604274"></p><p><strong>具体流程</strong></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211221485.png" alt="image-20230417211221485"></p><p><strong>点积</strong>：<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211313677.png" alt="image-20230417211313677"></p><p><strong>Coinse 相似性</strong>：<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211427674.png" alt="image-20230417211427674"></p><p><strong>MLP网络</strong>：<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211452177.png" alt="image-20230417211452177"></p><p><strong>打分机制：</strong><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211635781.png" alt="image-20230417211635781"></p><p><strong>归一化：</strong><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211628325.png" alt="image-20230417211628325"></p></li></ul><h2 id="5、Self-Attention">5、Self Attention</h2><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211839766.png" alt="image-20230417211839766"></p>]]></content>
+    
+    
+    <summary type="html">注意力机制Attention学习笔记</summary>
+    
+    
+    
+    <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="Attention" scheme="https://jsu-ysj.github.io/tags/Attention/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文献阅读(7)</title>
+    <link href="https://jsu-ysj.github.io/posts/59cb84f5.html"/>
+    <id>https://jsu-ysj.github.io/posts/59cb84f5.html</id>
+    <published>2023-04-17T05:50:53.393Z</published>
+    <updated>2023-04-17T05:55:56.402Z</updated>
+    
+    
+    <summary type="html">尝试去搭配训练一下糖网数据集</summary>
+    
+    
+    
+    <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>文献阅读(6)</title>
@@ -33,9 +79,9 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
     <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
@@ -44,7 +90,7 @@
     <link href="https://jsu-ysj.github.io/posts/6bfde677.html"/>
     <id>https://jsu-ysj.github.io/posts/6bfde677.html</id>
     <published>2023-04-15T02:33:38.946Z</published>
-    <updated>2023-04-16T01:32:27.836Z</updated>
+    <updated>2023-04-17T08:18:07.112Z</updated>
     
     <content type="html"><![CDATA[<h1>小样本图像分类研究综述</h1><h1>Survey of Few-Shot Image Classification Research</h1><h2 id="一、简介">一、简介</h2><p>针对分类任务系统梳理了当前<strong>小样本</strong>图像分类的相关工作，小样本学习主要采用<strong>元学习、度量学习和数据增强</strong>等深度学习方法。从有监督、半监督和无监督等层次<strong>归纳总结</strong>了小样本图像分类的研究进展和典型技术模型，以及这些模型方法在若干<strong>公共数据集上的表现</strong>，并从<strong>机制</strong>、优势、<strong>局限性</strong>等方面进行了对比分析。最后，讨论了当前小样本图像分类面临的技术难点以及未来的<strong>发展趋势</strong>。（元学习， 度量学习）</p><h1>二、文章的结构</h1><p>综述文献感觉有点不一样，没有分级，直接接这说明小样本训练的总体结构：</p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230415104227544.png" alt="image-20230415104227544"></p><h3 id="1-小样的分类方法和数据集的介绍">1.小样的分类方法和数据集的介绍</h3><h4 id="提出三种小样本学习常用的方法（模型）：">提出三种小样本学习常用的方法（模型）：</h4><ul><li><strong>元学习</strong>：也叫做learn to learn, 简单的总结就是，不会直接去学习这个数据，而是会找一些相关的数据去学习，从未达到比较好的效果。（我的理解就是比较好的预训练）</li><li><strong>度量学习</strong>：把小样本嵌入到不同“背景”之中去，来达到一个数据增强的效果 。</li><li><strong>数据增强</strong>：生成对抗网络，或者简单的 裁剪、翻转、过滤、旋转和去噪，也就是GAN和transform</li></ul><h4 id="提出几种小样本数据集">提出几种小样本数据集</h4><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230415105134405.png" alt="image-20230415105134405"></p><h3 id="2、有监督方法的小样本数据分类的对比性分析">2、有监督方法的小样本数据分类的对比性分析</h3><p><strong><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230415105334436.png" alt="image-20230415105334436"></strong></p><h3 id="3、半监督方法的小样本分类对比分析">3、半监督方法的小样本分类对比分析</h3><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230415105443183.png" alt="image-20230415105443183"></p><h3 id="4、无监督方法的小样本分类对比分析">4、无监督方法的小样本分类对比分析</h3><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230415105541654.png" alt="image-20230415105541654"></p><h3 id="5、分析未来小样本数据分类的挑战">5、分析未来小样本数据分类的挑战</h3><ul><li><p><strong>深度学习可解释性</strong>：</p><p>​研究者无法得知神经网络模型到底学习了什么，也不知道每一个参数的具体含义是什么，因此无<br>法解释整个模型的运作机制，无法得出明确而有针对性的优化方案来解决问题，只能通过大量实验不<br>断地尝试提高性能的方法。因此一个好的可解释性工作对小样本甚至任何研究方向都有指导作用。</p></li><li><p><strong>数据集挑战</strong>：</p><p>图像分类任务中目前仅有ImageNet作为预训练数据集，而文本分类中缺少类似的预训练数据<br>集，导致很多小样本图像分类方法缺少普适性，只适合在特定的数据集上发挥好的结果。在小样本图像<br>分类任务中Mini-ImageNet 和Omniglot 是两个被广泛使用的标准数据集，最近的斯坦福犬和CUB细<br>粒度分类等数据集也开始被人们用于测试，但并没有ImageNet数据集使用广泛。</p></li><li><p><strong>模型预训练的挑战</strong>：</p><p>从本质上来看与小样本学习的定义背道而驰。从根本上解决小样本问题，就要做到不依赖预训练模型，需研究利用其他先验知识而非模型预训练的方法。</p></li><li><p>​<strong>其他挑战</strong>：</p><p>将元学习与度量学习相结合，在进行特征提取之前，通过元学习预处理数据，设置更加合理的支持集<br>和查询集。虽然已经有研究者开始尝试，但是想实现这样的效果却十分困难，几个学习算法的相互结<br>合，有时候反而会导致小样本学习的性能下降。</p></li></ul><h3 id="6、小样本数据分类未来的发展方向">6、小样本数据分类未来的发展方向</h3><p>（1）在数据层面训练模型时尝试利用其他先验知识，或更好地利用无标注数据。</p><p>（2）对度量学习提出更有效的神经网络度量方法。</p><p>（3）元学习作为小样本学习的热点研究方向之一，元学习模型还继续有待提升。</p><p>（4）将对比学习与小样本学习有效地结合来达到更好的性能，是值得研究发展的方向。</p><p>（5）随着主动学习和强化学习框架的兴起，可以考虑将这些先进框架应用到小样本学习。</p><p>（6）通过Atention 来小样本数据分类的准确性</p><p>（7）尝试更多小样本数据学习方法的结合</p><h2 id="三、总结">三、总结</h2><p>介绍了用于小样本学习的常用算法，以及小样本图像分类在<strong>有监督</strong>、半监督和<strong>无监督</strong>下的技<br>术发展；最后总结了小样本图像分类的<strong>挑战</strong>和未来发展方向。小样本学习领域目前仍然具有很多值得<br>研究者们去突破的方向。小样本学习在与常规学习相比较时，性能仍然存在一定的差距，因此<strong>还需要研</strong><br><strong>究者们继续探索。</strong></p>]]></content>
     
@@ -67,7 +113,7 @@
     <link href="https://jsu-ysj.github.io/posts/72e6d736.html"/>
     <id>https://jsu-ysj.github.io/posts/72e6d736.html</id>
     <published>2023-04-13T13:07:29.725Z</published>
-    <updated>2023-04-16T01:11:57.892Z</updated>
+    <updated>2023-04-17T05:41:33.861Z</updated>
     
     <content type="html"><![CDATA[<h1>融合注意力机制和高效网络的糖尿病视网膜病变识别与分类</h1><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230413211409623.png" alt="image-20230413211409623"></p><h2 id="一、简介">一、简介</h2><p>针对在糖尿病视网膜病变分类过程中，因为<strong>数据集不均衡</strong>、<strong>类间特征相似</strong>、<strong>类内又存有差异</strong>，从<br>而导致最终分类准确率不高的问题，<strong>提出了一种****结合生成对抗网络与双注意力的分类方法 ＡＩＤｎｅｔ</strong>。首先，<br>在<strong>ＡＣＧＡＮ</strong>网络后加入转置卷积进行改进，生成轻度ＮＰＤＲ、重度ＮＰＤＲ、ＰＤＲ的图像<strong>平衡数据集</strong>；</p><p>其次，在inceptionV3网络的基础上加入双注意力机制（<strong>DAM</strong>），减少易识别病变权重，高效的提取DR图像细节特征，<strong>ＡＩＤｎｅｔ</strong>网络在kaggle数据集上的自动分类准确率为89.53％，敏感度为82.45％，特异性为93.26％；在<strong>Ｍｅｓｓｉｄｏｒ２</strong>上的准确率达到<strong>90.31％</strong>，敏感度达到89.28％，特异性达到93.31％。较其他分类方法而言，<strong>ＡＩＤｎｅｔ</strong>分类效果良好，有助于提高糖尿病视网膜病变的分类准确率</p><h2 id="二、文章的复现前置知识">二、文章的复现前置知识</h2><ol><li><strong>ACGAN +GAN</strong>卷积神经网络模型</li><li>数据增强和数据预处理</li><li><strong>Attention</strong>  + <strong>Double Attention</strong></li></ol><h2 id="三、文章的结构">三、文章的结构</h2><ul><li><h3 id="summary">summary</h3></li><li><h3 id="introduction">introduction</h3><ul><li><p>介绍 <strong>diabetic retinopthy: DR</strong>病情背景, 具体强调了数据不平衡之间的问题。</p></li><li><p>介绍一下当下在<strong>diabetic retinopthy</strong> 上面的一些分类数据和他人的模型</p><ul><li><p>分类数据集： <strong>kaggle</strong>, <strong>Messidor2</strong>, <strong>APTOS2019</strong></p></li><li><p>Levenbery-Marquardt(LM)和贝叶斯正则化 ： <strong>67.74</strong>%</p></li><li><p>Inception-ResNet-V2２上添加了自定义的卷积块，构建出了混合模型： <strong>82.18</strong>%</p></li><li><p>Antery等提出了多尺度注意力网络 ：  <strong>84.6</strong>%</p></li></ul></li><li><p>提出自己方法： <strong>AIDnet+迁移学习， GAN生成样本</strong></p></li></ul></li><li><h3 id="method">method</h3><ul><li><p><strong>迁移学习</strong>：迁移学习是目前使用较多的样本数据增广方法（没有说明怎么迁移的）</p></li><li><p><strong>生成对抗网络</strong>：提出GAN和ACGAN的概念</p></li><li><p><strong>注意力机制</strong>：把Efficient输出特征 F 作为 Attention 的输入，提高细节注意度</p></li><li><p><strong>Double Attention</strong> ： 提出双注意力机制</p></li></ul></li><li><h3 id="model-structure">model structure</h3><ul><li><strong>提出总体模型设计</strong></li></ul><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414145248416.png" alt="image-20230414145248416"></p><ul><li><strong>提出ACGAN的设计</strong></li></ul><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414145425993.png" alt="image-20230414145425993"></p><p>写出目标函数：</p><ul><li><p><strong>判别器的：</strong></p><p>​<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414145556308.png" alt=""></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414145630249.png" alt="image-20230414145630249"></p></li><li><p><strong>生成器的</strong></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414145556308.png" alt="image-20230414145556308"></p></li><li><p><strong>提出Double Attention 设计</strong></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414145726422.png" alt="image-20230414145726422"></p></li><li><p><strong>损失函数focal loss</strong></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414145905813.png" alt="image-20230414145905813"></p><p>补充：focal loss可以自适应地改变难分类的样本和<br>易分类样本在损失函数里的权重，解决严重的样<br>本不平衡问题，而且不需要计算复杂的权值映射，<br>使模型能够更好地捕捉图像特征。</p></li></ul></li><li><h3 id="数据集选择">数据集选择</h3><ul><li><strong>Messidor-2</strong></li><li><a href="https://www.kaggle.com/c/diabetic-retinopthy-detectton/orverview"><strong>kaggle</strong> <strong>Eye-PACS</strong></a></li></ul></li><li><h3 id="数据预处理">数据预处理</h3><ul><li>数据增强： 两个数据集中健康的眼底图像数量远远多于<br>病变的眼底图像数量，在网络训练的过程中加入<br>数据增强的操作有助于在一定程度上减弱数据集<br>的不平衡，降低过拟合的风险。本文数据增强的<br>方法是：随机水平垂直翻转，按中心点随机旋转<br>９０°，按照一定尺度和比率随机裁剪出５１２×５１２<br>的图片，增加明亮度与对比度</li></ul></li><li><h3 id="ACGAN迁移训练和数据的生成">ACGAN迁移训练和数据的生成</h3><p>训练ACGAN模型，在<strong>imageNet</strong>上面进行训练的<strong>inceptionV3</strong> 进行测试，保存好的模型，然后去生成数据集里面比较少的数据。（这里经过<strong>人工筛选</strong>之后得到比较好的数据）。这里在imageNet上面使用的<strong>inceptionV3</strong>的优化器是<strong>Adam</strong>,训练次数<strong>4000</strong></p></li><li><h3 id="训练开始">训练开始</h3><ul><li><p>lr = 0.01</p></li><li><p>SGD优化器 weight-decay = 1e-4, momentum = 0.9</p></li><li><p>焦点损失函数和交叉熵损失函数</p></li><li><p>DAM + inceptionV3 或者 CABM</p></li></ul></li><li><h3 id="实验结果分析">实验结果分析</h3><ul><li><p>Tab2 Comparision of parameters and accuracy results after adding attention model</p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414151742077.png" alt="image-20230414151742077"></p></li><li><p>Comparision of classification results on Kaggle</p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414152438379.png" alt="image-20230414152438379"></p></li><li><p>comparision  of classification results on Messidor-2</p></li><li><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414152552458.png" alt="image-20230414152552458"></p></li></ul></li><li><h3 id="结论">结论</h3><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230414152847860.png" alt="image-20230414152847860"></p></li></ul><h2 id="四、总结">四、总结</h2><ul><li><h3 id="文章优点">文章优点</h3><ol><li>文章结构清晰, 提出问题，引出自己的论点，然后提出总体设计，分开讲解每一个模块的设计，非常清晰。</li><li>换了一个角度去进行数据增强，值得借鉴（这里可以换成扩散网络试试看）</li><li>Double Attention 使用</li></ol></li><li><h3 id="文章缺点">文章缺点</h3><ol><li>没有吧，没看出来，就是对别人模型的复现有点差</li></ol></li><li><h3 id="借鉴之处">借鉴之处</h3><ol><li>换了一个角度去进行数据增强，值得借鉴（这里可以换成扩散网络试试看）可以使用感觉。</li><li>Double Attention</li></ol></li></ul><h2 id="五、复现">五、复现</h2><p>​文章具有可复现的可能，数据集+模型结构，没有预训练数据集，然后还需要学习一下GAN和ACGAN。</p>]]></content>
     
@@ -79,9 +125,9 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
     <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     <category term="糖网分类" scheme="https://jsu-ysj.github.io/tags/%E7%B3%96%E7%BD%91%E5%88%86%E7%B1%BB/"/>
     
@@ -104,9 +150,9 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
     <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     <category term="糖网分类" scheme="https://jsu-ysj.github.io/tags/%E7%B3%96%E7%BD%91%E5%88%86%E7%B1%BB/"/>
     
@@ -129,9 +175,9 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
     <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     <category term="糖网分类" scheme="https://jsu-ysj.github.io/tags/%E7%B3%96%E7%BD%91%E5%88%86%E7%B1%BB/"/>
     
@@ -154,9 +200,9 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="机械学习" scheme="https://jsu-ysj.github.io/tags/%E6%9C%BA%E6%A2%B0%E5%AD%A6%E4%B9%A0/"/>
-    
     <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="机械学习" scheme="https://jsu-ysj.github.io/tags/%E6%9C%BA%E6%A2%B0%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -165,7 +211,7 @@
     <link href="https://jsu-ysj.github.io/posts/7d10898e.html"/>
     <id>https://jsu-ysj.github.io/posts/7d10898e.html</id>
     <published>2023-04-10T02:50:08.264Z</published>
-    <updated>2023-04-16T01:03:26.861Z</updated>
+    <updated>2023-04-17T10:04:14.011Z</updated>
     
     
     <summary type="html">尝试去搭配训练一下糖网数据集</summary>
@@ -175,9 +221,9 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
     <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
@@ -196,9 +242,9 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="机械学习" scheme="https://jsu-ysj.github.io/tags/%E6%9C%BA%E6%A2%B0%E5%AD%A6%E4%B9%A0/"/>
-    
     <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="机械学习" scheme="https://jsu-ysj.github.io/tags/%E6%9C%BA%E6%A2%B0%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -219,9 +265,9 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="机械学习" scheme="https://jsu-ysj.github.io/tags/%E6%9C%BA%E6%A2%B0%E5%AD%A6%E4%B9%A0/"/>
-    
     <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="机械学习" scheme="https://jsu-ysj.github.io/tags/%E6%9C%BA%E6%A2%B0%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>Attention</title>
+      <link href="/posts/8ad2c32e.html"/>
+      <url>/posts/8ad2c32e.html</url>
+      
+        <content type="html"><![CDATA[<h1>Attention</h1><h2 id="1、为什么要要用Attention机制？">1、为什么要要用Attention机制？</h2><p>视觉注意力机制是人类大脑的一种天生的能力。当我们看到一幅图片时，先是快速扫过图片，然后锁定需要重点关注的目标区域。比如当我们观察上述图片时，注意力很容易就集中在了人脸、文章标题和文章首句等位置。试想，如果每个局部信息都不放过，那么必然耗费很多精力，不利于人类的生存进化。同样地，在深度学习网络中引入类似的机制，可以<strong>简化模型，加速计算</strong>。另外，利用循环神经网络去处理 NLP任务时，<strong>长距离“记忆”能力一直是个大难题，而引入“注意力机制”也能有效缓解这一问题。</strong></p><h2 id="2、Encoder-Decoder框架">2、Encoder-Decoder框架</h2><p>常见的深度学习模型有 <strong>CNN</strong>、RNN、LSTM、AE 等，其实都可以归为一种通用框架 - <strong>Encoder</strong>-<strong>Decoder</strong>.</p><ul><li><p><strong>Encoder</strong>通常是由一系列的神经网络层组成，可以将输入序列中的每个元素映射到一个<strong>高维向量空间</strong>中，然后将这些向量组合成一个固定长度的向量，作为Encoder的<strong>输出</strong>。Encoder的输出可以用于各种任务，例如情感分类、机器翻译、文本生成等。</p></li><li><p><strong>Decoder</strong>也是由一系列的神经网络层组成，它将Encoder的输出向量作为输入，并生成一个序列。在机器翻译任务中，Decoder通常将<strong>Encoder的输出</strong>向量作为第一个输入，并生成目标语言的句子。在文本生成任务中，<strong>Decoder可以根据Encoder的输出向量生成一段新的文本</strong>。</p></li></ul><h2 id="3、Soft-Attention">3、Soft Attention</h2><ul><li>软注意力模型（Soft Attention Model）是一种常用的注意力机制模型，它可以在输入序列的不同位置上产生不同的注意力权重，从而使模型能够更好地关注与当前任务相关的信息。</li></ul><h2 id="4、Attention-机制原理">4、Attention 机制原理</h2><p>​引用：北京邮电大学 信息与通信工程博士</p><ul><li><p>​现在，请你把 Source 想象成是内存里的一块存储空间，它里面存储的数据按 &lt;Key, Value&gt; 存储。给定 Query，然后取出对应的内容。<strong>这里与一般的 hash 查询方式不同的是，每个地址都只取一部分内容，然后对所有的 Value 加权求和。</strong></p><p>​<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417210530584.png" alt="image-20230417210530584"></p><p><strong>公式描述：</strong></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417210604274.png" alt="image-20230417210604274"></p><p><strong>具体流程</strong></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211221485.png" alt="image-20230417211221485"></p><p><strong>点积</strong>：<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211313677.png" alt="image-20230417211313677"></p><p><strong>Coinse 相似性</strong>：<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211427674.png" alt="image-20230417211427674"></p><p><strong>MLP网络</strong>：<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211452177.png" alt="image-20230417211452177"></p><p><strong>打分机制：</strong><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211635781.png" alt="image-20230417211635781"></p><p><strong>归一化：</strong><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211628325.png" alt="image-20230417211628325"></p></li></ul><h2 id="5、Self-Attention">5、Self Attention</h2><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211839766.png" alt="image-20230417211839766"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 神经网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 文献阅读 </tag>
+            
+            <tag> 神经网络 </tag>
+            
+            <tag> Attention </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>文献阅读(7)</title>
+      <link href="/posts/59cb84f5.html"/>
+      <url>/posts/59cb84f5.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 神经网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 文献阅读 </tag>
+            
+            <tag> 神经网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>文献阅读(6)</title>
       <link href="/posts/40d0b5b4.html"/>
       <url>/posts/40d0b5b4.html</url>
@@ -20,9 +76,9 @@
       
         <tags>
             
-            <tag> 神经网络 </tag>
-            
             <tag> 文献阅读 </tag>
+            
+            <tag> 神经网络 </tag>
             
         </tags>
       
@@ -74,9 +130,9 @@
       
         <tags>
             
-            <tag> 神经网络 </tag>
-            
             <tag> 文献阅读 </tag>
+            
+            <tag> 神经网络 </tag>
             
             <tag> 糖网分类 </tag>
             
@@ -103,9 +159,9 @@
       
         <tags>
             
-            <tag> 神经网络 </tag>
-            
             <tag> 文献阅读 </tag>
+            
+            <tag> 神经网络 </tag>
             
             <tag> 糖网分类 </tag>
             
@@ -132,9 +188,9 @@
       
         <tags>
             
-            <tag> 神经网络 </tag>
-            
             <tag> 文献阅读 </tag>
+            
+            <tag> 神经网络 </tag>
             
             <tag> 糖网分类 </tag>
             
@@ -161,9 +217,9 @@
       
         <tags>
             
-            <tag> 机械学习 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 机械学习 </tag>
             
         </tags>
       
@@ -188,9 +244,9 @@
       
         <tags>
             
-            <tag> 神经网络 </tag>
-            
             <tag> 文献阅读 </tag>
+            
+            <tag> 神经网络 </tag>
             
         </tags>
       
@@ -215,9 +271,9 @@
       
         <tags>
             
-            <tag> 机械学习 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 机械学习 </tag>
             
         </tags>
       
@@ -242,9 +298,9 @@
       
         <tags>
             
-            <tag> 机械学习 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 机械学习 </tag>
             
         </tags>
       
