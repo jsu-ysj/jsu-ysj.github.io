@@ -3170,19 +3170,19 @@ let unsplash = "url(https://source.unsplash.com/random/1920x1080/)";
 
 
 // 主页背景(自己的代码)
-if (localStorage.getItem("blogbg") != undefined) {
-  setBg(localStorage.getItem("blogbg"));
+if (true) {
+  setBg(localStorage.getItem("black"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
     // --default-bg: url(/image/default_cover_14.webp);
-    // --default-bg: url(/image/back2.jpg);
-    // --darkmode-bg:url(/image/yuanshen1.webp);
-    // --mobileday-bg: url(/image/snow.webp);
-    // --mobilenight-bg: url(/image/mb8.webp);
-    --default-bg: black;
-    --darkmode-bg:black;
-    --mobileday-bg: black;
-    --mobilenight-bg: black;
+    --default-bg: url(/image/back2.jpg);
+    --darkmode-bg:url(/image/yuanshen1.webp);
+    --mobileday-bg: url(/image/snow.webp);
+    --mobilenight-bg: url(/image/mb8.webp);
+    // --default-bg: black;
+    // --darkmode-bg:black;
+    // --mobileday-bg: black;
+    // --mobilenight-bg: black;
   }`;
 }
 // 切换背景主函数

@@ -110,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://jsu-ysj.github.io/box/animation/index.html</loc>
+    <loc>https://jsu-ysj.github.io/box/nav/index.html</loc>
     
     <lastmod>2023-03-07</lastmod>
     
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://jsu-ysj.github.io/box/nav/index.html</loc>
+    <loc>https://jsu-ysj.github.io/box/animation/index.html</loc>
     
     <lastmod>2023-03-07</lastmod>
     
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://jsu-ysj.github.io/personal/bb/index.html</loc>
+    <loc>https://jsu-ysj.github.io/life/games/index.html</loc>
     
     <lastmod>2023-03-07</lastmod>
     
@@ -146,16 +146,7 @@
   </url>
   
   <url>
-    <loc>https://jsu-ysj.github.io/life/movies/index.html</loc>
-    
-    <lastmod>2023-03-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jsu-ysj.github.io/personal/love/index.html</loc>
+    <loc>https://jsu-ysj.github.io/site/census/index.html</loc>
     
     <lastmod>2023-03-07</lastmod>
     
@@ -173,7 +164,16 @@
   </url>
   
   <url>
-    <loc>https://jsu-ysj.github.io/life/games/index.html</loc>
+    <loc>https://jsu-ysj.github.io/life/movies/index.html</loc>
+    
+    <lastmod>2023-03-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jsu-ysj.github.io/site/time/index.html</loc>
     
     <lastmod>2023-03-07</lastmod>
     
@@ -200,7 +200,16 @@
   </url>
   
   <url>
-    <loc>https://jsu-ysj.github.io/site/census/index.html</loc>
+    <loc>https://jsu-ysj.github.io/personal/bb/index.html</loc>
+    
+    <lastmod>2023-03-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jsu-ysj.github.io/personal/love/index.html</loc>
     
     <lastmod>2023-03-07</lastmod>
     
@@ -210,15 +219,6 @@
   
   <url>
     <loc>https://jsu-ysj.github.io/social/link/index.html</loc>
-    
-    <lastmod>2023-03-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jsu-ysj.github.io/site/time/index.html</loc>
     
     <lastmod>2023-03-07</lastmod>
     
@@ -254,20 +254,6 @@
 
   
   <url>
-    <loc>https://jsu-ysj.github.io/tags/%E6%9C%BA%E6%A2%B0%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2023-04-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2023-04-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://jsu-ysj.github.io/tags/C/</loc>
     <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -282,6 +268,27 @@
   </url>
   
   <url>
+    <loc>https://jsu-ysj.github.io/tags/%E6%9C%BA%E6%A2%B0%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2023-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2023-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/</loc>
+    <lastmod>2023-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://jsu-ysj.github.io/tags/Markdown/</loc>
     <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -290,13 +297,6 @@
   
   <url>
     <loc>https://jsu-ysj.github.io/tags/%E5%A4%96%E6%8C%82%E6%A0%87%E7%AD%BE/</loc>
-    <lastmod>2023-04-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/</loc>
     <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -319,14 +319,14 @@
 
   
   <url>
-    <loc>https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
+    <loc>https://jsu-ysj.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jsu-ysj.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
