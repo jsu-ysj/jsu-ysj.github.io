@@ -3173,18 +3173,19 @@ let unsplash = "url(https://source.unsplash.com/random/1920x1080/)";
 if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
-  document.getElementById("defineBg").innerText = `:root{
-    // --default-bg: url(/image/default_cover_14.webp);
-    --default-bg: url(/image/back2.jpg);
-    --darkmode-bg:url(/image/yuanshen1.webp);
-    --mobileday-bg: url(/image/snow.webp);
-    --mobilenight-bg: url(/image/mb8.webp);
-  }`;
+//   document.getElementById("defineBg").innerText = `:root{
+//     // --default-bg: url(/image/default_cover_14.webp);
+//     --default-bg: url(/image/back2.jpg);
+//     --darkmode-bg:url(/image/yuanshen1.webp);
+//     --mobileday-bg: url(/image/snow.webp);
+//     --mobilenight-bg: url(/image/mb8.webp);
+//   }`;
+    setBg('#000000');
 }
 // 切换背景主函数
 function changeBg(s) {
   // 自定义颜色框
-  defineColor = s.charAt(0) == "#" ? s : '#F4D88A';
+  defineColor = s.charAt(0) == "#" ? s : '#000000';
   setBg(s);
   localStorage.setItem("blogbg", s);
 }
