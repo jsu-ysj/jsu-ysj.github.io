@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Transformer 学习(1)</title>
+      <link href="/posts/f142c823.html"/>
+      <url>/posts/f142c823.html</url>
+      
+        <content type="html"><![CDATA[<h1>Transformer</h1><h2 id="1、transformer-的总体架构">1、transformer 的总体架构</h2><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230420161850815.png" alt="image-20230420161850815"></p><p>​</p><h2 id="2、Transformer的组成">2、Transformer的组成</h2><ul><li><p>输入部分</p><p>​<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230420162139645.png" alt="image-20230420162139645"></p><ul><li><p>​源文本嵌入层及其位置的编码器</p></li><li><p>​目标文本嵌入层及其位置编码器</p></li></ul></li><li><p>输出部分</p><p>​<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230420162417026.png" alt="image-20230420162417026"></p><ul><li>​线性层</li><li>softmax 层</li></ul></li><li><p>编码器部分</p><p>​<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230420162503966.png" alt="image-20230420162503966"></p><ul><li>由<strong>n</strong>个编码器堆叠而成</li><li>每一个编码器由三个子层连接结构组成</li><li>第一个子层连接结构包括一个多头注意力子层和规范化层以及一个残差连接</li></ul></li><li><p>解码器部分</p><ul><li><p>由N个解码器堆叠而成</p></li><li><p>每一个解码器由三个子层连接而成</p></li><li><p>第一个子层结构包括一个<strong>多头注自意力机制</strong>和规范化层以及一个全连接层</p></li><li><p>第二个子层结构包括一个<strong>多头注意力机制</strong>和规范化层以及一个全连接层</p></li></ul></li></ul><p>​</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 神经网络 </tag>
+            
+            <tag> Transformer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Attention</title>
       <link href="/posts/8ad2c32e.html"/>
       <url>/posts/8ad2c32e.html</url>
@@ -20,9 +47,9 @@
       
         <tags>
             
-            <tag> 文献阅读 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 文献阅读 </tag>
             
             <tag> Attention </tag>
             
@@ -49,9 +76,9 @@
       
         <tags>
             
-            <tag> 文献阅读 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 文献阅读 </tag>
             
         </tags>
       
@@ -76,9 +103,9 @@
       
         <tags>
             
-            <tag> 文献阅读 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 文献阅读 </tag>
             
         </tags>
       
@@ -130,9 +157,9 @@
       
         <tags>
             
-            <tag> 文献阅读 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 文献阅读 </tag>
             
             <tag> 糖网分类 </tag>
             
@@ -159,9 +186,9 @@
       
         <tags>
             
-            <tag> 文献阅读 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 文献阅读 </tag>
             
             <tag> 糖网分类 </tag>
             
@@ -188,9 +215,9 @@
       
         <tags>
             
-            <tag> 文献阅读 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 文献阅读 </tag>
             
             <tag> 糖网分类 </tag>
             
@@ -244,9 +271,9 @@
       
         <tags>
             
-            <tag> 文献阅读 </tag>
-            
             <tag> 神经网络 </tag>
+            
+            <tag> 文献阅读 </tag>
             
         </tags>
       

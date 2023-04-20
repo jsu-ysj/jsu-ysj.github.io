@@ -6,7 +6,7 @@
   <link href="https://jsu-ysj.github.io/atom.xml" rel="self"/>
   
   <link href="https://jsu-ysj.github.io/"/>
-  <updated>2023-04-17T13:18:55.030Z</updated>
+  <updated>2023-04-20T13:31:08.357Z</updated>
   <id>https://jsu-ysj.github.io/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Transformer 学习(1)</title>
+    <link href="https://jsu-ysj.github.io/posts/f142c823.html"/>
+    <id>https://jsu-ysj.github.io/posts/f142c823.html</id>
+    <published>2023-04-20T08:15:22.285Z</published>
+    <updated>2023-04-20T13:31:08.357Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Transformer</h1><h2 id="1、transformer-的总体架构">1、transformer 的总体架构</h2><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230420161850815.png" alt="image-20230420161850815"></p><p>​</p><h2 id="2、Transformer的组成">2、Transformer的组成</h2><ul><li><p>输入部分</p><p>​<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230420162139645.png" alt="image-20230420162139645"></p><ul><li><p>​源文本嵌入层及其位置的编码器</p></li><li><p>​目标文本嵌入层及其位置编码器</p></li></ul></li><li><p>输出部分</p><p>​<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230420162417026.png" alt="image-20230420162417026"></p><ul><li>​线性层</li><li>softmax 层</li></ul></li><li><p>编码器部分</p><p>​<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230420162503966.png" alt="image-20230420162503966"></p><ul><li>由<strong>n</strong>个编码器堆叠而成</li><li>每一个编码器由三个子层连接结构组成</li><li>第一个子层连接结构包括一个多头注意力子层和规范化层以及一个残差连接</li></ul></li><li><p>解码器部分</p><ul><li><p>由N个解码器堆叠而成</p></li><li><p>每一个解码器由三个子层连接而成</p></li><li><p>第一个子层结构包括一个<strong>多头注自意力机制</strong>和规范化层以及一个全连接层</p></li><li><p>第二个子层结构包括一个<strong>多头注意力机制</strong>和规范化层以及一个全连接层</p></li></ul></li></ul><p>​</p>]]></content>
+    
+    
+    <summary type="html">注意力机制Attention学习笔记</summary>
+    
+    
+    
+    <category term="深度学习" scheme="https://jsu-ysj.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="Transformer" scheme="https://jsu-ysj.github.io/tags/Transformer/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Attention</title>
     <link href="https://jsu-ysj.github.io/posts/8ad2c32e.html"/>
     <id>https://jsu-ysj.github.io/posts/8ad2c32e.html</id>
     <published>2023-04-17T10:03:39.147Z</published>
-    <updated>2023-04-17T13:18:55.030Z</updated>
+    <updated>2023-04-17T13:19:38.577Z</updated>
     
     <content type="html"><![CDATA[<h1>Attention</h1><h2 id="1、为什么要要用Attention机制？">1、为什么要要用Attention机制？</h2><p>视觉注意力机制是人类大脑的一种天生的能力。当我们看到一幅图片时，先是快速扫过图片，然后锁定需要重点关注的目标区域。比如当我们观察上述图片时，注意力很容易就集中在了人脸、文章标题和文章首句等位置。试想，如果每个局部信息都不放过，那么必然耗费很多精力，不利于人类的生存进化。同样地，在深度学习网络中引入类似的机制，可以<strong>简化模型，加速计算</strong>。另外，利用循环神经网络去处理 NLP任务时，<strong>长距离“记忆”能力一直是个大难题，而引入“注意力机制”也能有效缓解这一问题。</strong></p><h2 id="2、Encoder-Decoder框架">2、Encoder-Decoder框架</h2><p>常见的深度学习模型有 <strong>CNN</strong>、RNN、LSTM、AE 等，其实都可以归为一种通用框架 - <strong>Encoder</strong>-<strong>Decoder</strong>.</p><ul><li><p><strong>Encoder</strong>通常是由一系列的神经网络层组成，可以将输入序列中的每个元素映射到一个<strong>高维向量空间</strong>中，然后将这些向量组合成一个固定长度的向量，作为Encoder的<strong>输出</strong>。Encoder的输出可以用于各种任务，例如情感分类、机器翻译、文本生成等。</p></li><li><p><strong>Decoder</strong>也是由一系列的神经网络层组成，它将Encoder的输出向量作为输入，并生成一个序列。在机器翻译任务中，Decoder通常将<strong>Encoder的输出</strong>向量作为第一个输入，并生成目标语言的句子。在文本生成任务中，<strong>Decoder可以根据Encoder的输出向量生成一段新的文本</strong>。</p></li></ul><h2 id="3、Soft-Attention">3、Soft Attention</h2><ul><li>软注意力模型（Soft Attention Model）是一种常用的注意力机制模型，它可以在输入序列的不同位置上产生不同的注意力权重，从而使模型能够更好地关注与当前任务相关的信息。</li></ul><h2 id="4、Attention-机制原理">4、Attention 机制原理</h2><p>​引用：北京邮电大学 信息与通信工程博士</p><ul><li><p>​现在，请你把 Source 想象成是内存里的一块存储空间，它里面存储的数据按 &lt;Key, Value&gt; 存储。给定 Query，然后取出对应的内容。<strong>这里与一般的 hash 查询方式不同的是，每个地址都只取一部分内容，然后对所有的 Value 加权求和。</strong></p><p>​<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417210530584.png" alt="image-20230417210530584"></p><p><strong>公式描述：</strong></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417210604274.png" alt="image-20230417210604274"></p><p><strong>具体流程</strong></p><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211221485.png" alt="image-20230417211221485"></p><p><strong>点积</strong>：<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211313677.png" alt="image-20230417211313677"></p><p><strong>Coinse 相似性</strong>：<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211427674.png" alt="image-20230417211427674"></p><p><strong>MLP网络</strong>：<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211452177.png" alt="image-20230417211452177"></p><p><strong>打分机制：</strong><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211635781.png" alt="image-20230417211635781"></p><p><strong>归一化：</strong><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211628325.png" alt="image-20230417211628325"></p></li></ul><h2 id="5、Self-Attention">5、Self Attention</h2><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230417211839766.png" alt="image-20230417211839766"></p>]]></content>
     
@@ -33,9 +56,9 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
-    
     <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
     <category term="Attention" scheme="https://jsu-ysj.github.io/tags/Attention/"/>
     
@@ -46,7 +69,7 @@
     <link href="https://jsu-ysj.github.io/posts/59cb84f5.html"/>
     <id>https://jsu-ysj.github.io/posts/59cb84f5.html</id>
     <published>2023-04-17T05:50:53.393Z</published>
-    <updated>2023-04-17T05:55:56.402Z</updated>
+    <updated>2023-04-17T13:19:38.582Z</updated>
     
     
     <summary type="html">尝试去搭配训练一下糖网数据集</summary>
@@ -56,9 +79,9 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
-    
     <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
@@ -79,9 +102,9 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
-    
     <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
@@ -125,9 +148,9 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
-    
     <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
     <category term="糖网分类" scheme="https://jsu-ysj.github.io/tags/%E7%B3%96%E7%BD%91%E5%88%86%E7%B1%BB/"/>
     
@@ -150,9 +173,9 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
-    
     <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
     <category term="糖网分类" scheme="https://jsu-ysj.github.io/tags/%E7%B3%96%E7%BD%91%E5%88%86%E7%B1%BB/"/>
     
@@ -175,9 +198,9 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
-    
     <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
     <category term="糖网分类" scheme="https://jsu-ysj.github.io/tags/%E7%B3%96%E7%BD%91%E5%88%86%E7%B1%BB/"/>
     
@@ -221,9 +244,9 @@
     <category term="神经网络" scheme="https://jsu-ysj.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
-    
     <category term="神经网络" scheme="https://jsu-ysj.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="文献阅读" scheme="https://jsu-ysj.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
