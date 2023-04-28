@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Transformer 学习(2)</title>
+      <link href="/posts/da6f9be0.html"/>
+      <url>/posts/da6f9be0.html</url>
+      
+        <content type="html"><![CDATA[<h1>Transformer的第一个部分 - 输入部分</h1><p>​<img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230420162139645.png" alt="image-20230420162139645"></p><h2 id="1、inputs">1、inputs</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    词向量编码器</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Embeddings</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, d_model, vocab</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">            d_model: 词的嵌入维度</span></span><br><span class="line"><span class="string">            vocab  : 词表的大小</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="built_in">super</span>(Embeddings, self).__init__()</span><br><span class="line">        self.d_model = d_model</span><br><span class="line">        self.lut = nn.Embedding(vocab, d_model)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.lut(x)</span><br><span class="line">        x = x * math.sqrt(self.d_model)  <span class="comment"># 起到一个缩放的作用</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>​</p><h2 id="2、Test-For-inputs">2、Test For inputs</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> Embedding <span class="keyword">import</span> Embeddings</span><br><span class="line"></span><br><span class="line">d_model = <span class="number">8</span></span><br><span class="line">vocab = <span class="number">4</span></span><br><span class="line">emb = Embeddings(d_model, vocab)</span><br><span class="line"></span><br><span class="line">x = Variable(torch.LongTensor([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]]))</span><br><span class="line">y = emb(x)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(y)</span><br><span class="line"><span class="built_in">print</span>(y.shape)</span><br><span class="line"></span><br></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/jsu-ysj/my_image/main/images/image-20230425112639333.png" alt="image-20230425112639333"></p><h2 id="3、positionEncoding">3、positionEncoding</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">位置编码器</span></span><br><span class="line"><span class="string">    每一个词在不同的位置上面有不同的意思</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PositionEncoding</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, d_model, dropout, max_len=<span class="number">5000</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="built_in">super</span>(PositionEncoding, self).__init__()</span><br><span class="line">        self.dropout = nn.Dropout(p=dropout)</span><br><span class="line">        pe = torch.zeros(max_len, d_model)</span><br><span class="line">        position = torch.arange(<span class="number">0</span>, max_len).unsqueeze(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        div_term = torch.exp(torch.arange(<span class="number">0</span>, d_model, <span class="number">2</span>) *</span><br><span class="line">                             -(math.log(<span class="number">10000.0</span>), d_model))</span><br><span class="line">        pe[:, <span class="number">0</span>::<span class="number">2</span>] = torch.sin(position * div_term)</span><br><span class="line">        pe[:, <span class="number">1</span>::<span class="number">2</span>] = torch.cos(position * div_term)</span><br><span class="line">        pe.unsqueeze(<span class="number">0</span>)</span><br><span class="line">        self.register_buffer(<span class="string">&#x27;pe&#x27;</span>, pe)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = x + Variable(self.pe[:, x.size(<span class="number">1</span>)], requires_grad=<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">return</span> self.dropout(x)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 神经网络 </tag>
+            
+            <tag> Transformer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Transformer 学习(1)</title>
       <link href="/posts/f142c823.html"/>
       <url>/posts/f142c823.html</url>
@@ -244,9 +271,9 @@
       
         <tags>
             
-            <tag> 神经网络 </tag>
-            
             <tag> 机械学习 </tag>
+            
+            <tag> 神经网络 </tag>
             
         </tags>
       
@@ -298,9 +325,9 @@
       
         <tags>
             
-            <tag> 神经网络 </tag>
-            
             <tag> 机械学习 </tag>
+            
+            <tag> 神经网络 </tag>
             
         </tags>
       
@@ -325,9 +352,9 @@
       
         <tags>
             
-            <tag> 神经网络 </tag>
-            
             <tag> 机械学习 </tag>
+            
+            <tag> 神经网络 </tag>
             
         </tags>
       
